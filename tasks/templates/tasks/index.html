@@ -4,7 +4,17 @@
     <h1>Tasks</h1>
     <ul>
         {% for task in tasks %}
+            
             <li>{{ task.title }}</li>
+            <li>{{ task.description }}</li>
+            <li>Completed: {{ task.completed }}</li>
+            <li>Due: {{ task.due_date }}</li>
+        <hr>
+
+        {% empty %}
+
+            <h3>No Tasks Yet.</h3>
+
         {% endfor %}
     </ul>
 {% endblock %}

@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tasks</title>
+    <title>Task List</title>
 </head>
+
+<h2>TaskMaster</h2>
+
+    <nav>
+
+        <a href="{% url 'task_list' %}">Home</a>
+
+        <a href="{% url 'task_create' %}">Add Task</a>
 <body>
     {% block content %}
     
