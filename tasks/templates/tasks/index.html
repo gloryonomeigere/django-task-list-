@@ -9,7 +9,10 @@
             <li>{{ task.description }}</li>
             <li>Completed: {{ task.completed }}</li>
             <li>Due: {{ task.due_date }}</li>
+            <a href="{% url 'task_update' task.id %}" class="btn">Edit</a>
         <hr>
+            
+
 
         {% empty %}
 
