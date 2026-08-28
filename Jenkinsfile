@@ -3,20 +3,14 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-
         stage('Test') {
             steps {
                 sh '''
                     docker run --rm \
-                    -v "$PWD:/app" \
+                    -v "$WORKSPACE:/app" \
                     -w /app \
                     python:3.13-slim \
-                    sh -c "pip install --no-cache-dir -r requirements.txt && python manage.py test"
+                    sh -c "ls -la && pip install --no-cache-dir -r requirements.txt && python manage.py test"
                 '''
             }
         }
