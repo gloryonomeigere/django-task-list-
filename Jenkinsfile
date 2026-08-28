@@ -6,11 +6,9 @@ pipeline {
         stage('Test') {
             steps {
                 sh '''
-                    docker run --rm \
-                    -v "$WORKSPACE:/app" \
-                    -w /app \
-                    python:3.13-slim \
-                    sh -c "ls -la && pip install --no-cache-dir -r requirements.txt && python manage.py test"
+                    python3 --version
+                    python3 -m pip install --break-system-packages -r requirements.txt
+                    python3 manage.py test
                 '''
             }
         }
