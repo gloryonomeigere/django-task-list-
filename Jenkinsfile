@@ -26,5 +26,19 @@ pipeline {
                 sh 'docker build -t task-list .'
             }
         }
+
+        stage('Deploy') {
+            steps {
+                sh '''
+                    docker stop task-list-app || true
+                    docker rm task-list-app || true
+
+                    docker run -d \
+                    --name task-list-app \
+                    -p 8000:8000 \
+                    task-list
+                '''
+            }
+        }
     }
 }
